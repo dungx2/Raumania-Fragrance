@@ -5,9 +5,21 @@ import { FaStar } from "react-icons/fa6";
 
 import { ButtonLink } from "@/components/ButtonLink";
 import clsx from "clsx";
-import { HorizontalLine, VerticalLine } from "../Line";
+import { HorizontalLine, VerticalLine } from "../../Line";
 import { Scribble } from "./Scribble";
+import { useEffect, useState } from "react";
 
+async function getDominantColor(url: string) {
+  const paletteURL = new URL(url);
+  paletteURL.searchParams.set("palette", "json");
+
+  const res = await fetch(paletteURL);
+  const json = await res.json();
+
+  return (
+    json.dominant_colors.vibrant?.hex || json.dominant_colors.vibrant_light?.hex
+  );
+}
 
 type Product = {
   id: string;
@@ -27,13 +39,25 @@ const VERTICAL_LINE_CLASSES =
 const HORIZONTAL_LINE_CLASSES =
   "-mx-8 stroke-2 text-stone-300 transition-colors group-hover:text-stone-400";
 
-export function PerfumeProduct({ product }: Props) {
+  export function PerfumeProduct({ product }: Props) {
+    const [dominantColor, setDominantColor] = useState<string | undefined>();
+  
+    useEffect(() => {
+      async function fetchColor() {
+        const color = await getDominantColor(product.imageUrl);
+        setDominantColor(color);
+      }
+  
+      fetchColor();
+    }, [product.imageUrl]);
   /*const price = `${(product.price / 1000).toFixed(3)} dong`;*/
   const price = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
     minimumFractionDigits: 0,
   }).format(product.price);
+
+ 
 
   return (
     <div className="group relative mx-auto w-full max-w-72 px-8 pt-4">
@@ -61,7 +85,7 @@ export function PerfumeProduct({ product }: Props) {
 
       <HorizontalLine className={HORIZONTAL_LINE_CLASSES} />
 
-      <h3 className="my-2 text-center font-sans leading-tight text-lg">
+      <h3 className="my-2 text-center font-sans leading-tight text-lg" style={{ backgroundColor: dominantColor }}>
         {product.name}
       </h3>
 

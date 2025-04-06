@@ -1,7 +1,8 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { Header } from "@/components/Header";
 import Hero from "@/components/home/Hero";
-import ProductGrid from "@/components/ProductGrid/ProductGrid";
+import ProductGrid from "@/components/home/ProductGrid/ProductGrid";
+import TextAndImage from "@/components/home/TextAndImage/TextAndImage";
 
 
 
@@ -49,6 +50,18 @@ export default function Home() {
         },
         
       ]}
+    
+    />
+    <TextAndImage
+        index={1}
+        theme="Blue"
+        heading="Experience the Scent"
+        body="Crafted with precision and passion, this perfume brings elegance to life."
+        buttonText="Shop Now"
+        buttonHref="/products"
+        variation="imageOnLeft"
+        foregroundImage="/images/perfume-1.png"
+        backgroundImage="/images/bg-texture.png"
     />
     </>
   );

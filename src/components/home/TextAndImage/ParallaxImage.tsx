@@ -1,22 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 
 type Props = {
-  foregroundImage: {
-    src: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-  };
-  backgroundImage: {
-    src: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-  };
+  foregroundImage: string; // image URL
+  backgroundImage: string; // image URL
   className?: string;
 };
 
@@ -37,6 +26,7 @@ export function ParallaxImage({
 
     function onMouseMove(event: MouseEvent) {
       const { innerWidth, innerHeight } = window;
+
       const xPercent = (event.clientX / innerWidth - 0.5) * 2;
       const yPercent = (event.clientY / innerHeight - 0.5) * 2;
 
@@ -77,24 +67,18 @@ export function ParallaxImage({
         ref={backgroundRef}
         className="col-start-1 row-start-1 transition-transform"
       >
-        <Image
-          src={backgroundImage.src}
-          alt={backgroundImage.alt ?? ""}
-          width={backgroundImage.width ?? 800}
-          height={backgroundImage.height ?? 500}
-          className="w-11/12"
-        />
+        <img src={backgroundImage} 
+        alt="" 
+        className="w-11/12" />
       </div>
 
       <div
         ref={foregroundRef}
         className="col-start-1 row-start-1 transition-transform h-full w-full place-items-center"
       >
-        <Image
-          src={foregroundImage.src}
-          alt={foregroundImage.alt ?? ""}
-          width={foregroundImage.width ?? 600}
-          height={foregroundImage.height ?? 400}
+        <img
+          src={foregroundImage}
+          alt=""
           className="h-full max-h-[500px] w-auto"
         />
       </div>

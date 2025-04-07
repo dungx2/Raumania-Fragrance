@@ -30,8 +30,15 @@ module.exports = {
         "brand-navy": "#2e3192",
         "brand-orange": "#ff7347",
         "brand-pink": "#f7d0e9",
-        "brand-purple": "#692e54",
-        "brand-gray": "#fffdf9",
+        "muted-wine": "#7e4a52",
+        "brand-salmon": "#f37a64",
+        "brand-pinkbutton": "#db9aa4",
+        "brand-yellowbutton": "#f0c987",
+        "brand-purple": "#b46b75",
+        "brand-gray": "#fdf7f1",
+        "brand-be": "#e8dcc8",
+        "brand-milk": "#d9c1a3",
+        
       },
       keyframes: {
         squiggle: {

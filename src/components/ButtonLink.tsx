@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ComponentProps } from "react";
 
 export type ButtonProps = {
-  color?: "orange" | "purple" | "lime";
+  color?: "orange" | "purple" | "lime"|"pink"|"yellow";
   size?: "sm" | "md" | "lg";
   icon?: "cart" | "GiDelicatePerfume" | "plus";
 } & ComponentProps<typeof Link>;
@@ -37,6 +37,12 @@ export function ButtonLink({
           "from-brand-purple to-brand-lime text-white hover:text-black",
         color === "lime" &&
           "from-brand-lime to-brand-orange text-black hover:text-black",
+        
+        color === "pink" &&
+          "from-brand-pinkbutton to-brand-yellowbutton text-black hover:text-black",
+        
+        color === "yellow" &&
+          "from-brand-yellowbutton to-brand-purple text-black hover:text-black",
         className,
       )}
       {...props}

@@ -14,7 +14,7 @@ import { Heading } from "@/components/Heading";
 import { SlideIn } from "../../SlideIn";
 import { ParallaxImage } from "./ParallaxImage";
 
-type Theme = "Blue" | "Orange" | "Navy" | "Lime";
+type Theme = "Blue" | "Orange" | "Navy" | "Lime"| "be"| "milk";
 
 export type TextAndImageProps = {
   index: number;
@@ -25,7 +25,7 @@ export type TextAndImageProps = {
   buttonHref: string;
   variation?: "imageOnLeft" | "default";
   foregroundImage: string;
-  backgroundImage?: string;
+  backgroundImage: string;
 };
 const TextAndImage = ({
     index,
@@ -45,7 +45,9 @@ const TextAndImage = ({
           theme === "Blue" && "bg-texture bg-brand-blue text-white",
           theme === "Orange" && "bg-texture bg-brand-orange text-white",
           theme === "Navy" && "bg-texture bg-brand-navy text-white",
-          theme === "Lime" && "bg-texture bg-brand-lime"
+          theme === "Lime" && "bg-texture bg-brand-lime",
+          theme === "be" && "bg-texture bg-brand-be",
+          theme === "milk" && "bg-texture bg-brand-milk",
         )}
         style={{ "--index": index } as CSSProperties}
       >
@@ -64,17 +66,18 @@ const TextAndImage = ({
             <SlideIn>
               <div className="max-w-md text-lg leading-relaxed">{body}</div>
             </SlideIn>
-            <SlideIn>
-              <ButtonLink href={buttonHref} color={theme === "Lime" ? "orange" : "lime"}>
+            <SlideIn> 
+              <ButtonLink href={buttonHref} color={"yellow"}>
                 {buttonText}
               </ButtonLink>
             </SlideIn>
+            
           </div>
   
           <ParallaxImage
-          foregroundImage={{ src: "/images/hero-fg.png", alt: "Cool thing" }}
-          backgroundImage={{ src: "/images/hero-bg.jpg", alt: "Cooler background" }}
-          />
+          foregroundImage={foregroundImage}
+          backgroundImage={backgroundImage}
+        />
 
         </div>
       </Bounded>

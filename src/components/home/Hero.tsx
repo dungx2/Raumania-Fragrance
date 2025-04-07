@@ -11,12 +11,13 @@ export type HeroProps = {
   body: string;
   buttonText: string;
   buttonHref: string;
+  color: string;
 };
 
 const Hero: FC<HeroProps> = ({ heading, body, buttonText, buttonHref }) => {
   return (
     <>
-      <Header />
+      
 
       <Bounded className="bg-brand-gray relative h-dvh overflow-hidden text-zinc-800 bg-texture">
         <div className="absolute inset-0 flex items-center pt-20">
@@ -36,6 +37,7 @@ const Hero: FC<HeroProps> = ({ heading, body, buttonText, buttonHref }) => {
 
             <ButtonLink
               href={buttonHref}
+              color="yellow"
               icon="GiDelicatePerfume"
               size="lg"
               className="z-20 mt-2 block"

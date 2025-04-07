@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant_garamond.variable} ${dancing_script.variable} antialiased font-mono font-medium text-zinc-400`}
+        className={`${cormorant_garamond.variable} ${dancing_script.variable} antialiased font-mono font-medium text-zinc-800`}
       >
         <main>
         {children}

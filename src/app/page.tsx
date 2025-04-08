@@ -1,20 +1,25 @@
-
 import { Header } from "@/components/Header";
 import Hero from "@/components/home/Hero";
 import ProductGrid from "@/components/home/ProductGrid/ProductGrid";
 import TextAndImage from "@/components/home/TextAndImage/TextAndImage";
-
-import { heroData, productsData, textAndImageSlices } from "./data/homeData";
 import VideoBlock from "@/components/home/VideoBlock/videoblock";
 
+import { heroData, productsData, textAndImageSlices } from "./data/homeData";
+import { TextAndImageProps } from "@/components/home/TextAndImage/TextAndImage";
 
+type TextAndImageBundle = {
+  slice_type: "text_and_image_bundle";
+  slices: TextAndImageProps[];
+};
 
 export default function Home() {
+  const bundledSlices = bundleTextAndImageSlices(textAndImageSlices);
+
   return (
-    
     <>
-     <Header/>
-     <Hero
+      <Header />
+
+      <Hero
         heading={heroData.heading}
         body={heroData.body}
         buttonText={heroData.buttonText}
@@ -28,17 +33,47 @@ export default function Home() {
         products={productsData}
       />
 
-      {textAndImageSlices.map((slice, index) => (
-        <TextAndImage key={index} {...slice} />
-      ))}
-    
-    <VideoBlock youtubeID="VllN0yINA5A" />
-    <ProductGrid
+      {bundledSlices.map((slice, index) => {
+        if ("slice_type" in slice && slice.slice_type === "text_and_image_bundle") {
+          return (
+            <div key={index}>
+              {slice.slices.map((s, i) => (
+                <TextAndImage key={i} {...s} />
+              ))}
+            </div>
+          );
+        }
+
+        
+      })}
+
+      <VideoBlock youtubeID="VllN0yINA5A" />
+
+      <ProductGrid
         heading="Our Perfumes"
         body="Browse our luxurious collection of signature scents."
         products={productsData}
       />
-    
     </>
   );
+}
+
+function bundleTextAndImageSlices(
+  slices: TextAndImageProps[]
+): (TextAndImageProps | TextAndImageBundle)[] {
+  const res: (TextAndImageProps | TextAndImageBundle)[] = [];
+
+  for (const slice of slices) {
+    const last = res.at(-1);
+    if (last && "slice_type" in last && last.slice_type === "text_and_image_bundle") {
+      last.slices.push(slice);
+    } else {
+      res.push({
+        slice_type: "text_and_image_bundle",
+        slices: [slice],
+      });
+    }
+  }
+
+  return res;
 }

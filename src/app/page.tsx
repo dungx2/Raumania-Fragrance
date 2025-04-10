@@ -6,6 +6,8 @@ import VideoBlock from "@/components/home/VideoBlock/videoblock";
 
 import { heroData, productsData, textAndImageSlices } from "./data/homeData";
 import { TextAndImageProps } from "@/components/home/TextAndImage/TextAndImage";
+import Footer from "@/components/Footer";
+
 
 type TextAndImageBundle = {
   slice_type: "text_and_image_bundle";
@@ -49,11 +51,7 @@ export default function Home() {
 
       <VideoBlock youtubeID="VllN0yINA5A" />
 
-      <ProductGrid
-        heading="Our Perfumes"
-        body="Browse our luxurious collection of signature scents."
-        products={productsData}
-      />
+      <Footer/>
     </>
   );
 }

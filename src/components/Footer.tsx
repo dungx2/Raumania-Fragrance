@@ -10,12 +10,9 @@ import { FooterPhysics } from "./FooterPhysics";
 // Example static data to replace Prismic
 const footerImage = "/images/footer-bg.jpg"; // Replace with your actual image path
 const footerPerfumes = [
-  "/images/hair-mist.png",
-  "/images/perfume-spray.png",
-  "/images/perfume-spray-9.png",
-  "/images/perfume-spray-6.png",
-  "/images/spray perfume 7.png",
-  "/images/black-yellow-complete.png",
+  "/images/perfume-1.png",
+  "/images/perfume-2.png",
+  "/images/perfume-3.png",
 ]; // Replace with actual image paths
 
 const navigation = [
@@ -28,7 +25,7 @@ const navigation = [
 export default function Footer() {
   return (
     <footer className="bg-texture bg-zinc-900 text-white overflow-hidden">
-      <div className="relative min-h-[600px] p-10 bg-red-500">
+      <div className="relative h-[75vh] p-10">
         <Image
           src={footerImage}
           alt=""

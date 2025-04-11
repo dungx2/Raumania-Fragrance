@@ -7,6 +7,7 @@ import VideoBlock from "@/components/home/VideoBlock/videoblock";
 import { heroData, productsData, textAndImageSlices } from "./data/homeData";
 import { TextAndImageProps } from "@/components/home/TextAndImage/TextAndImage";
 import Footer from "@/components/Footer";
+import { InteractivePerfume } from "@/components/home/InteractivePerfume";
 
 
 type TextAndImageBundle = {
@@ -20,6 +21,8 @@ export default function Home() {
   return (
     <>
       <Header />
+
+      <InteractivePerfume/>
 
       <Hero
         heading={heroData.heading}

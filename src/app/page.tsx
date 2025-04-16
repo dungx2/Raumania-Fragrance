@@ -22,7 +22,8 @@ export default function Home() {
     <>
       <Header />
 
-      <InteractivePerfume/>
+      <div className="relative">
+        <InteractivePerfume />
 
       <Hero
         heading={heroData.heading}
@@ -31,6 +32,7 @@ export default function Home() {
         buttonHref={heroData.buttonHref}
         color={heroData.color}
       />
+      </div>
 
       <ProductGrid
         heading="Our Perfumes"

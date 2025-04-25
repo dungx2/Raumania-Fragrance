@@ -2,7 +2,7 @@
 
 "use client";
 
-import Image from "next/image";
+
 import clsx from "clsx";
 import { CSSProperties, JSX } from "react";
 

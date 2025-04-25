@@ -8,11 +8,17 @@ import { Bounded } from "./Bounded";
 import { FooterPhysics } from "./FooterPhysics";
 
 // Example static data to replace Prismic
-const footerImage = "/images/footer-bg.jpg"; // Replace with your actual image path
+const footerImage = "/images/bgfooter.png"; // Replace with your actual image path
 const footerPerfumes = [
   "/images/perfume-1.png",
   "/images/perfume-2.png",
   "/images/perfume-3.png",
+  "/images/perfume-4.png",
+  "/images/perfume-5.png",
+  "/images/perfume-6.png",
+  "/images/perfume-7.png",
+  "/images/perfume-8.png",
+  "/images/perfume-9.png",
 ]; // Replace with actual image paths
 
 const navigation = [

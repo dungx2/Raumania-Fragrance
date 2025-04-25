@@ -45,8 +45,8 @@ export const heroData = {
     {
       index: 1,
       theme: "be",
-      heading: "I want to be part of what’s coming next",
-      body: "At Raumania, our sustainability efforts are rooted in the belief that we must focus where we can make the most meaningful difference. We are committed to restoring nature, protecting the climate, investing in circularity, and championing dignity and opportunity for all—especially by advancing women’s autonomy.",
+      heading: "I want to leave a trace that lingers beautifully.",
+      body: "At Raumania, our debut fragrance marks more than a scent—it’s the beginning of a story. Rooted in elegance and purpose, we craft each note with care for the world we share. Our commitment to sustainability, ethical sourcing, and timeless design reflects a deeper mission: to inspire confidence, celebrate identity, and leave behind something unforgettable.",
       buttonText: "Shop Now",
       buttonHref: "/products",
       variation: "imageOnLeft",

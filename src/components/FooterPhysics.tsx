@@ -172,8 +172,8 @@ export function FooterPhysics({
         render: {
           sprite: {
             texture,
-            xScale: 0.5,
-            yScale: 0.5,
+            xScale: 0.1,
+            yScale: 0.1,
           },
         },
       });
